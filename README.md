@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <a href="[https://github.com/github_username/repo_name](https://github.com/0ldcamel/codeinplace)">
-    <img src="images/CiP2024.png" alt="Logo" width="80" height="80">
+    <img src="images/CiP2024.png" alt="Logo" width="280" height="80">
   </a>
 
 # Code In Place 2024
