@@ -17,7 +17,7 @@ def main():
                 print("Click in shape.")
                 print(overlap, f"; x = {x}, y = {y}")
                 button_value = button_vs_num[overlap[0]]
-                print('You clicked', button_value, 'button.')
+                print('You clicked', button_value, 'button.') # for debug only, can be deleted. 
                 
         if canvas.get_new_mouse_clicks(): # A click outside any shape.
             print("")
@@ -34,20 +34,20 @@ def draw_buttons():
         y = start_y + j * distance_y
         row = j * 5
         for i in range(5): # as there are 5 columns of buttons
-            if j == 2 and i == 3: # draw big button =
-                equal_to = canvas.create_rectangle(250, 365, 335, 390, 'white', 'black')
-                canvas.create_text(290, 372, "=") # Shape 28
-                button_vs_num[equal_to] = '='
+            if j == 2 and i == 3: # draw big button with equal sign (=)
+                equal_to = canvas.create_rectangle(250, 365, 335, 390, 'white', 'black') # create the button
+                canvas.create_text(290, 372, "=") # create corresponding label
+                button_vs_num[equal_to] = '=' # associate button and its label, storing both of them in a dict
             elif j == 2 and i == 4: # skip left of button 0
                 continue
             elif j == 3 and (i == 0 or i > 1): # skip right of button 0
                 continue
             else: # draw button from 0 - 9 and other small buttons (CE, BCE, BP, reset)
                 x = start_x + i * distance_x
-                num_button = button_gui(x, y)
-                num_text = canvas.create_text(x + 18, y + 13, text = str(numbers[i + row]), anchor='center')
-                button_vs_num[num_button] = numbers[i + row]
-    print(button_vs_num)
+                num_button = button_gui(x, y) # create the button
+                num_text = canvas.create_text(x + 18, y + 13, text = str(numbers[i + row]), anchor='center') # create corresponding label
+                button_vs_num[num_button] = numbers[i + row] # associate button and its label, storing both of them in a dict
+    print(button_vs_num) # for debug only, can be deleted
     return button_vs_num
 
 def button_gui(x, y):
