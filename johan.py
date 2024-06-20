@@ -52,14 +52,8 @@ def draw_buttons():
 
 def button_gui(x, y):
     # The button's source code, excluding equal_to.
-    button = canvas.create_rectangle(
-        x, 
-        y, 
-        x+35, 
-        y+25,
-        'white', 
-        'black'
-        )
+    button_width, button_height = 35, 25
+    button = canvas.create_rectangle(x, y, x + button_width, y + button_height,'white', 'black')
     return button
 
 if __name__ == '__main__':
