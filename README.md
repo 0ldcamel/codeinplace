@@ -10,11 +10,14 @@
 ## Using graphics module in VS Code:
 [Using the graphics module in VS Code](https://codeinplace.stanford.edu/cip4/forum?post=ad0f48a5-9e07-41bc-a228-6076b676de98) is an excellence answer by Micheal C.
 
-`canvas.get_new_key_presses()` actually returns a list of key presses, not just a single keypress.  And the elements of that list aren't strings -- they're KeyPress objects, which have a `.keysym` member containing the key name.  Here's an example of how to get the actual key names for each keypress:
+- `canvas.get_new_key_presses()` actually returns a list of key presses, not just a single keypress.  And the elements of that list aren't strings -- they're KeyPress objects, which have a `.keysym` member containing the key name.  Here's an example of how to get the actual key names for each keypress:
 
 ```
 for key in canvas.get_new_key_presses():
     print(key.keysym)
 ```
+- The key names themselves are also different from the names in the Code in Place graphics library. For example, instead of "ArrowLeft", it'll just be "Left".
 
-## Second level heading 2
+- You need to call `canvas.update()` each time through your loop. Otherwise you won't see the changes you've made to the canvas, and you won't receive any new keypresses.
+
+## Useful function in Graphic Project
