@@ -26,23 +26,23 @@ def main():
 
 def draw_buttons():
     # Button GUI.
-    numbers = [7, 8, 9,'reset', 'BP', 4, 5, 6, 'CE', 'BCE', 1, 2 ,3, '=', '==', 'a', 0, 'b']
+    numbers = [7, 8, 9,'reset', 'BP', 4, 5, 6, 'CE', 'BCE', 1, 2 ,3, 'Nah', 'Nada', 'Yuck', 0, 'None']
     distance_x, distance_y = 50, 40
     start_x, start_y = 100, 285
     button_vs_num = {}
-    for j in range(4):
+    for j in range(4): # as there are 4 rows of buttons
         y = start_y + j * distance_y
         row = j * 5
-        for i in range(5):
-            if j == 2 and i == 3:
+        for i in range(5): # as there are 5 columns of buttons
+            if j == 2 and i == 3: # draw big button =
                 equal_to = canvas.create_rectangle(250, 365, 335, 390, 'white', 'black')
                 canvas.create_text(290, 372, "=") # Shape 28
                 button_vs_num[equal_to] = '='
-            elif j == 2 and i == 4:
+            elif j == 2 and i == 4: # skip left of button 0
                 continue
-            elif j == 3 and (i == 0 or i > 1):
+            elif j == 3 and (i == 0 or i > 1): # skip right of button 0
                 continue
-            else:
+            else: # draw button from 0 - 9 and other small buttons (CE, BCE, BP, reset)
                 x = start_x + i * distance_x
                 num_button = button_gui(x, y)
                 num_text = canvas.create_text(x + 18, y + 13, text = str(numbers[i + row]), anchor='center')
