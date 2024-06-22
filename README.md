@@ -7,7 +7,13 @@
 
 # Attending Stanford's Code In Place 2024
 
-## Using graphics module in VS Code:
+## My webpage on GitHub.
+Here is my webpage in GitHub, containing my notes while attending the course.
+<a href='https://0ldcamel.github.io/cip2024.html'>0ld Camel attending Stanford's Code In Place 2024</a>
+
+## My favorite posts and replies
+
+### Using graphics module in VS Code:
 [Using the graphics module in VS Code](https://codeinplace.stanford.edu/cip4/forum?post=ad0f48a5-9e07-41bc-a228-6076b676de98) is an excellence answer by Micheal C.
 
 - `canvas.get_new_key_presses()` actually returns a list of key presses, not just a single keypress.  And the elements of that list aren't strings -- they're KeyPress objects, which have a `.keysym` member containing the key name.  Here's an example of how to get the actual key names for each keypress:
@@ -20,7 +26,7 @@ for key in canvas.get_new_key_presses():
 
 - You need to call `canvas.update()` each time through your loop. Otherwise you won't see the changes you've made to the canvas, and you won't receive any new keypresses.
 
-## Useful function in Graphic Project
+### Useful function in Graphic Project
 ```
 def calculate_reference_area(canvas,obj,width,height):
     coords = canvas.coords(obj)
