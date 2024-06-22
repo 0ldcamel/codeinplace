@@ -14,7 +14,7 @@ Here is my webpage in GitHub, containing my notes while attending the course.
 ## My favorite posts and replies
 
 ### Using graphics module in VS Code:
-[Using the graphics module in VS Code](https://codeinplace.stanford.edu/cip4/forum?post=ad0f48a5-9e07-41bc-a228-6076b676de98){:target="_blank"} is an excellence answer by Micheal C.
+[Using the graphics module in VS Code](https://codeinplace.stanford.edu/cip4/forum?post=ad0f48a5-9e07-41bc-a228-6076b676de98) {:target="_blank"} is an excellence answer by Micheal C.
 
 - `canvas.get_new_key_presses()` actually returns a list of key presses, not just a single keypress.  And the elements of that list aren't strings -- they're KeyPress objects, which have a `.keysym` member containing the key name.  Here's an example of how to get the actual key names for each keypress:
 
