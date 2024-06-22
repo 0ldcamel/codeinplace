@@ -49,3 +49,7 @@ some_words = ["pineapple", "pizza", "belongs on"]
 foo(*some_words)
 ```
 The output of the above is: _pineapple belongs on pizza_
+
+
+
+&copy; 0ld Camel
