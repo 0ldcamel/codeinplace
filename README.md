@@ -53,4 +53,4 @@ The output of the above is: _pineapple belongs on pizza_
 
 
 
-&copy; 0ld Camel 2024
+<div align="center">&copy; 0ld Camel 2024</div>
