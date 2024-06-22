@@ -9,7 +9,7 @@
 
 ## My webpage on GitHub.
 Here is my webpage in GitHub, containing my notes while attending the course.
-<a href='https://0ldcamel.github.io/cip2024.html'>0ld Camel attending Stanford's Code In Place 2024</a>
+<a href='https://0ldcamel.github.io/cip2024.html' target="_blank">0ld Camel attending Stanford's Code In Place 2024</a>
 
 ## My favorite posts and replies
 
