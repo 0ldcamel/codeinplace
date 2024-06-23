@@ -5,7 +5,7 @@
     <img src="images/CiP2024.png" alt="Logo" width="583" height="80"></a>
 </div>
 
-# Attending Stanford's Code In Place 2024
+# 0ld Camel Attending Stanford's Code In Place 2024
 
 ## My webpage on GitHub.
 Here is my webpage in GitHub, containing my notes while attending the course.
