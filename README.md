@@ -15,7 +15,7 @@ Here is my webpage in GitHub, containing my notes while attending the course.
 
 ### Using graphics module in VS Code:
 [Using the graphics module in VS Code](https://codeinplace.stanford.edu/cip4/forum?post=ad0f48a5-9e07-41bc-a228-6076b676de98)
-is an excellence answer by Micheal C
+is an excellence answer by Micheal C.
 
 - `canvas.get_new_key_presses()` actually returns a list of key presses, not just a single keypress.  And the elements of that list aren't strings -- they're KeyPress objects, which have a `.keysym` member containing the key name.  Here's an example of how to get the actual key names for each keypress:
 
@@ -26,6 +26,27 @@ for key in canvas.get_new_key_presses():
 - The key names themselves are also different from the names in the Code in Place graphics library. For example, instead of "ArrowLeft", it'll just be "Left".
 
 - You need to call `canvas.update()` each time through your loop. Otherwise you won't see the changes you've made to the canvas, and you won't receive any new keypresses.
+
+Building on Micheal's response, I managed to get two options of get_mouse_click() to return its x and y coordinates;
+- Option 1: it requires the `wait_for_click()`
+```
+canvas.wait_for_click()
+mouse_x = canvas.get_mouse_x()
+mouse_y = canvas.get_mouse_y()
+print('option 1:', mouse_x, mouse_y)
+
+canvas.update()
+```
+- Option 2: this doesn't require the `wait_for_click()` and seems to work well. In theory, this option could get a list of clicks but I don't know how to get more than one click though.
+``` 
+for click in canvas.get_new_mouse_clicks():
+    x, y = click.x, click.y
+    print("option 2:", x, y)
+
+canvas.update()
+```
+`canvas.update()` is added to both pieces of code as a reminder to myself to have it included and also to exclude `canvas.mainloop()`.  
+I have not been able to have both options work together to print out the same coordinates with one click. Option 1 seems to take precedence. 
 
 ### Useful function in Graphic Project
 ```
