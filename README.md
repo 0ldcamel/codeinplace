@@ -45,7 +45,7 @@ for click in canvas.get_new_mouse_clicks():
 
 canvas.update()
 ```
-Intentionally `canvas.update()` is added to both pieces of code as a reminder to myself that it is needed to see animation quicker. As per SL Maggie T, `canvas.mainloop()` should also be added to the end of your main() function to keep the graphics window open at the end of the program.  
+Intentionally `canvas.update()` is added to both pieces of code as a reminder to myself that it is needed to see animation quicker. As per SL Maggie T, `canvas.mainloop()` should also be added to the end of `main()` function to keep the graphics window open at the end of the program.  
 I have not been able to have both options work together to print out the same coordinates with one click. Option 1 seems to take precedence. 
 
 ### Useful function in Graphic Project
