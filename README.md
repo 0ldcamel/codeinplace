@@ -45,7 +45,7 @@ for click in canvas.get_new_mouse_clicks():
 
 canvas.update()
 ```
-`canvas.update()` is added to both pieces of code as a reminder to myself to have it included and also to exclude `canvas.mainloop()`.  
+Intentionally `canvas.update()` is added to both pieces of code as a reminder to myself to have it included and also to exclude `canvas.mainloop()`.  
 I have not been able to have both options work together to print out the same coordinates with one click. Option 1 seems to take precedence. 
 
 ### Useful function in Graphic Project
