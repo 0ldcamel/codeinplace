@@ -6,7 +6,7 @@ def main():
     canvas.create_text(200, 350, "Click to Continue", anchor='center', font_size = 24, color='blue')
     test_list(canvas)
     test_tuple(canvas)
-    # canvas.mainloop()
+    
 
 def test_list(canvas):
     colliding_list = create_list(canvas)
