@@ -39,6 +39,9 @@ def test_tuple(canvas):
     canvas.wait_for_click()
 
 def create_list(canvas):
+    '''
+    return a list of two objects
+    '''
     colliding_list = []
     for i in range(2):
         list_obj = canvas.create_rectangle(100, 100 + 100 * i, 150, 150 + 100 * i, 'red')
@@ -46,6 +49,9 @@ def create_list(canvas):
     return colliding_list
 
 def create_tuple(canvas):
+    '''
+    return a tuple of two objects
+    '''
     tuple_obj_1 = canvas.create_oval(100, 100, 150, 150, 'blue')
     tuple_obj_2 = canvas.create_oval(100, 200, 150, 250, 'blue')
     return tuple_obj_1, tuple_obj_2
