@@ -16,12 +16,12 @@ def create_objects(canvas):
             top_y = 30 + row
             color = get_color()
             obj = canvas.create_oval(left_x, top_y, left_x + size, top_y + size, color=color)
-            list_of_objects.append(obj)
+            list_of_objects.append(obj) # add object to list so they can be tracked.
     return list_of_objects
 
 def delete_object(canvas, list_of_objects):
     start_list = list_of_objects
-    while len(start_list) > 0:
+    while len(start_list) > 0: # quite program when no more object to click
         canvas.wait_for_click()
         x = canvas.get_mouse_x()
         y = canvas.get_mouse_y()
@@ -29,7 +29,7 @@ def delete_object(canvas, list_of_objects):
         for item in ol:
             print(f'delete object {item} at coordinates {x}, {y}')
             canvas.delete(item)
-            start_list.remove(item)
+            start_list.remove(item) # update list, removing the deleted object.
 
             canvas.update()
     
