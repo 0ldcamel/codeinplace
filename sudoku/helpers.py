@@ -68,10 +68,7 @@ def check_boxes(matrix):
                 continue
             else:
                 return False
-    return True
+        return True
     
-            
-
-matrix = initial_matrix()
-print(check_boxes(matrix))
+        
 
