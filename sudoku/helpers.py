@@ -42,20 +42,13 @@ def check_row(row, matrix):
 
 def check_box(top_row, left_col, matrix):
     check_set = set()
-    check_list =[]
     for i in range(3):
-        row = []
         for j in range(3):
-            value = matrix[i][j]
-            row.append(value)
+            value = matrix[i + top_row][j + left_col]
             check_set.add(value)
-        check_list.append(row)
-        print(row)
     if len(check_set) == 9:
-        
         return True
     return False
-
 
 def check_column(col, matrix):
     check_set = set()
