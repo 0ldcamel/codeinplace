@@ -1,5 +1,7 @@
 import random
 
+SWAP = 100
+
 def initial_matrix():
     lists = make_list()
     i_matrix = []
@@ -60,14 +62,47 @@ def check_column(col, matrix):
     return False
 
 def check_boxes(matrix):
-    values = []
     for i in range(3):
         for j in range(3):
-            if check_box(i, j, matrix):
-                continue
-            else:
+            top_row = i * 3
+            left_column = j * 3
+            if not check_box(top_row, left_column, matrix):
                 return False
-        return True
-    
+    return True
         
+def swap_what(matrix, index):
+    swaps = ['row', 'column']
+    swap = random.choice(swaps)
+    if swap == 'row':
+        return swapping_rows(matrix, index)
+    else:
+        return swapping_columns(matrix, index)
 
+def get_other(index):
+    indexes = [0, 1, 2]
+    base_index = index // 3
+    local_index = index - base_index * 3
+    indexes.remove(local_index)
+    other_index = random.choice(indexes)
+    return other_index + base_index * 3
+
+def swapping_columns(matrix, index):
+    other_index = get_other(index)
+    # print(f'swap column {other_index} with column {index}')
+    for i in range(9):
+        matrix[i][index], matrix[i][other_index] = matrix[i][other_index], matrix[i][index]
+    return matrix    
+
+def swapping_rows(matrix, index):
+    other_index = get_other(index)
+    # print(f'swap row {other_index} with row {index}')
+    for i in range(9):
+        matrix[index][i], matrix[other_index][i] = matrix[other_index][i], matrix[index][i]
+    return matrix
+
+def full_swap(matrix):
+    indexes = list(range(9))
+    for i in range(SWAP): # how many swap?
+        index = random.choice(indexes)
+        swap_what(matrix, index)
+    return matrix
