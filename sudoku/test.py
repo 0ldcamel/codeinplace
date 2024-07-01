@@ -1,11 +1,5 @@
-from helpers import box_to_list
-import create
+from single_post import row_col
 
-matrix = create.main()
-print('Print Matrix')
-for row in matrix:
-    print(row)
-
-lst = box_to_list(6, 6, matrix)
-print('Print List')
-print(lst)
+pos = row_col()
+for i in range(81):
+    print(pos[i])

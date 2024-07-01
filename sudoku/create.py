@@ -1,5 +1,5 @@
 from helpers import initial_matrix, full_swap, poke_hole
-HOLES = 10
+HOLES = 20
 
 def main():
     matrix = initial_matrix()

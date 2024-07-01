@@ -7,7 +7,6 @@ def main():
     print('_' * 27, '\n')
     for _ in range(500):
         update_matrix(matrix)
-    
     print_matrix(matrix)
 
 def check_zero(matrix):
@@ -24,12 +23,12 @@ def update_matrix(matrix):
                 matrix[j][i] = pos_avail(j, i, matrix)[0]
 
 def box_candidates(row, column, matrix):
-    base_row = row // 3
-    base_col = column // 3
+    top_row = row // 3
+    left_col = column // 3
     numbers = list(range(1, 10))
     for i in range(3):
         for j in range(3):
-            number = matrix[3 * base_row + j][3 * base_col + i]
+            number = matrix[3 * top_row + j][3 * left_col + i]
             if number in numbers:
                 numbers.remove(number)
     return numbers

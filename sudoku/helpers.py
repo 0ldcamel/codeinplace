@@ -59,10 +59,17 @@ def check_box(top_row, left_col, matrix):
         return True
     return False
 
-def check_column(col, matrix):
-    check_set = set()
+def column_to_list(col, matrix):
+    lst = []
     for i in range(9):
         value = matrix[i][col]
+        lst.append(value)
+    return lst
+
+def check_column(col, matrix):
+    check_set = set()
+    values = column_to_list(col, matrix)
+    for value in values:
         check_set.add(value)
     if len(check_set) == 9:
         return True
