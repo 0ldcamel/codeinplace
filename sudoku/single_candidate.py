@@ -6,7 +6,7 @@ def main():
     print_matrix(matrix)
     print('_' * 27, '\n')
     for _ in range(500):
-        update_matrix(matrix)
+        single_cand(matrix)
     print_matrix(matrix)
 
 def check_zero(matrix):
@@ -15,11 +15,11 @@ def check_zero(matrix):
             return True
     return False
 
-def update_matrix(matrix):
+def single_cand(matrix):
     for i in range(9):
         for j in range(9):
             if len(pos_avail(j, i, matrix)) == 1 and matrix[j][i] == 0:
-                # print(f'{j}, {i}, {pos_avail(j, i, matrix)}')
+                # print(f'SC: row {j}, column {i}, is updated to {pos_avail(j, i, matrix)[0]}')
                 matrix[j][i] = pos_avail(j, i, matrix)[0]
 
 def box_candidates(row, column, matrix):

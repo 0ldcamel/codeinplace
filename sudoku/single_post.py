@@ -1,4 +1,4 @@
-from helpers import box_to_list, column_to_list, print_matrix
+from helpers import column_to_list, print_matrix
 import create
 
 def main():
@@ -15,12 +15,22 @@ def main():
     ]
     print_matrix(matrix)
     print('_' * 27, '\n')
-    value, row = 9, 1
-    columns = pos_in_row(value, row, matrix) # return list of columns
-    print('there are columns', columns, 'in row', row)
-    print('After check validity in columns, the remaining position for', value, 'are', check_row_col(value, row, columns, matrix))
-    print('I need to check the box')
-    positions = check_row_col(value, row, columns, matrix)
+    single_pos(matrix)
+
+def single_pos(matrix):
+    for value in range(1, 10):
+        for row in range(9):
+            columns = pos_in_row(value, row, matrix) # return list of columns
+            positions = check_row_col(value, row, columns, matrix)
+            if len(positions) == 1:
+                row = positions[0][0]
+                col = positions[0][1]
+                n = pos_in_box(value, row, col, matrix)
+                if n:
+                    # print(f'SP, row {row}, col {col} is updated to {value}.')
+                    matrix[row][col] = value
+
+    return matrix
 
 def check_row_col(value, row, columns, matrix):
     positions = []
@@ -28,7 +38,7 @@ def check_row_col(value, row, columns, matrix):
         pos = pos_in_col(value, row, col, matrix)
         if len(pos) > 0:
             positions.append([row, col])
-    print(positions)
+    # print(positions)
     return positions
 
 def row_col_list():
@@ -38,7 +48,6 @@ def row_col_list():
             pos.append([i, j])
     return pos
 
-    
 def pos_in_row(value, row, matrix):
     # find possible position in row
     indexes = []
@@ -59,17 +68,22 @@ def pos_in_col(value, row, col, matrix):
     elif col_list[row] == 0:
         indexes.append(col_list[row])
     return indexes   
+
 def pos_in_box(value, row, col, matrix):
-    indexes = []
     top_row = row // 3
     left_col = col // 3
-    box_list = box_to_list(top_row, left_col, matrix)
+    box_list = box_to_list(top_row * 3, left_col * 3, matrix)
+    # print('box_list', box_list)
     if value in box_list:
-        return indexes
-    for i in range(9):
-        if box_list[i] == 0:
-            indexes.append(i)
-    return indexes
+        return False
+    return True
+
+def box_to_list(top_row, left_col, matrix):
+    lst = []
+    for i in range(3):
+        for j in range(3):
+            lst.append(matrix[i + top_row][j + left_col])
+    return lst
 
 if __name__ == '__main__':
     main()
