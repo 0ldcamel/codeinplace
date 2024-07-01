@@ -42,12 +42,19 @@ def check_row(row, matrix):
         return True
     return False
 
-def check_box(top_row, left_col, matrix):
-    check_set = set()
+def box_to_list(top_row, left_col, matrix):
+    lst = []
     for i in range(3):
         for j in range(3):
             value = matrix[i + top_row][j + left_col]
-            check_set.add(value)
+            lst.append(value)
+    return lst
+
+def check_box(top_row, left_col, matrix):
+    check_set = set()
+    values = box_to_list(top_row, left_col, matrix)
+    for value in values:
+        check_set.add(value)
     if len(check_set) == 9:
         return True
     return False
@@ -106,3 +113,20 @@ def full_swap(matrix):
         index = random.choice(indexes)
         swap_what(matrix, index)
     return matrix
+
+def random_indexes():
+    indexes = list(range(9))
+    i1 = random.choice(indexes)
+    j1 = random.choice(indexes)
+    i2 = 8 - i1
+    j2 = 8 - j1
+    return i1, j1, i2, j2
+
+def poke_hole(matrix):
+    i1, j1, i2, j2 = random_indexes()
+    matrix[i1][j1] = 0
+    matrix[i2][j2] = 0
+
+def print_matrix(matrix):
+    for row in matrix:
+        print(row)
