@@ -129,10 +129,13 @@ def random_indexes():
     j2 = 8 - j1
     return i1, j1, i2, j2
 
-def poke_hole(matrix):
-    i1, j1, i2, j2 = random_indexes()
-    matrix[i1][j1] = 0
-    matrix[i2][j2] = 0
+def poke_hole(matrix, HOLES):
+    copy_matrix = matrix.copy()
+    for i in range(HOLES):
+        i1, j1, i2, j2 = random_indexes()
+        matrix[i1][j1] = 0
+        matrix[i2][j2] = 0
+    return copy_matrix
 
 def print_matrix(matrix):
     for row in matrix:
